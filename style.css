@@ -1,0 +1,47 @@
+body{
+    background-color: skyblue;
+}
+
+#game{
+    background-color: white;
+    height: 500px;
+    width: 400px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: auto;
+    overflow: hidden;
+}
+
+#pipe{
+    width: 50px;
+    height: 500px;
+    background-color: black;
+    border-radius: 5px;
+    position: relative;
+    left: 400px;
+    animation: pipe 2s infinite linear;
+}
+
+@keyframes pipe{
+    0%{left: 400px}
+    100%{left: -50px}
+}
+
+#hole{
+    width: 50px;
+    height: 150px;
+    background-color: white;
+    position: relative;
+    left: 400px;
+    top: -400px;
+    animation: pipe 2s infinite linear;
+}
+
+#character{
+    width: 20px;
+    height: 20px;
+    background-color: green;
+    border-radius: 50%;
+    position: absolute;
+    top: 200px;
+}
