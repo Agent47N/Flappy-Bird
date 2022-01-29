@@ -33,7 +33,7 @@ body{
     background-color: white;
     position: relative;
     left: 400px;
-    top: -400px;
+    top: -300px;
     animation: pipe 2s infinite linear;
 }
 
@@ -44,4 +44,17 @@ body{
     border-radius: 50%;
     position: absolute;
     top: 200px;
+}
+
+#text{
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size: 15px;
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    top: 750px;
+    justify-content: center;
+    background-color: rgb(60, 255, 0);
+    border-radius: 5px;
+    color: black;
 }
