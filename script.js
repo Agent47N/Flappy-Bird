@@ -11,8 +11,6 @@ hole.addEventListener('animationiteration', () => {
     {
         randomLocation = -300;
         start = 0;
-        pipe.style.backgroundColor = black;
-        character.style.backgroundColor = green;
     }
     else
         randomLocation = -((Math.random()*300)+150);
@@ -30,7 +28,7 @@ hole.addEventListener('animationiteration', () => {
         }    
 });
 
-setInterval(function(){
+let chk_Hole = setInterval(function(){
     let characterTop = parseInt(window.getComputedStyle(character).getPropertyValue("top"));
     if(jumping==0){
         character.style.top = (characterTop+3)+"px";
@@ -38,19 +36,28 @@ setInterval(function(){
     let pipeLeft = parseInt(window.getComputedStyle(pipe).getPropertyValue("left"));
     let holeTop = parseInt(window.getComputedStyle(hole).getPropertyValue("top"));
     let cTop = -(500-characterTop);
-    if((characterTop>490)||((pipeLeft<20)&&(pipeLeft>-50)&&((cTop<holeTop)||(cTop>holeTop+141)))){
-        if (counter === 0)
-            counter = 1;
-        alert("Game over. Score: "+(counter-1));
-        character.style.top = 100 + "px";
-        counter = 0;
-        start = 1;
-        if (counter > count_prev)
+    if((characterTop>490)||((pipeLeft<20)&&(pipeLeft>-50)&&((cTop<holeTop)||(cTop>holeTop+141))))
+    {
+        if (confirm("Game over. Score: "+(counter-1)))
             {
-                count_prev = counter;
-                console.log( `High score: ${count_prev}`);
-                para.innerHTML = `High score: ${count_prev}`;
-            }    
+                pipe.style.animation = 'none';
+                pipe.offsetHeight;
+                pipe.style.animation = null;
+                hole.style.animation = 'none';
+                hole.offsetHeight;
+                hole.style.animation = null;  
+                character.style.top = 100 + "px";
+                pipe.style.backgroundColor = '#000000';
+                character.style.backgroundColor = '#008000';
+                start = 1;
+                if ((counter-1) >= count_prev)
+                    {
+                        count_prev = counter-1;
+                        console.log( `High score: ${count_prev}`);
+                        para.innerHTML = `High score: ${count_prev}`;
+                    }
+                counter = 1;   
+            }        
     }
 },10);
 
